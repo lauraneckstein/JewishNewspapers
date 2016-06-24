@@ -151,7 +151,7 @@ font-family: 'Bitter', serif; font-weight: 400;
     var geojson2 = new L.geoJson(data, {
       onEachFeature: function (feature, layer) {
         // Add a popup or any other layer-related action
-           layer.bindPopup("<h2>" + "'" + feature.properties.title + "'" + "</h2><hr><h3><ul><li>Newspaper: <em>" + feature.properties.publication_title  + "</li></em><br><li>" + "Publication Date: " + feature.properties.date_real + "</li><br><li>" + "Location: " + feature.properties.place + "</li><br><li>" + "<a  href=" + feature.properties.url + " target=_blank>Click to see the article!</a>" + "</p>");
+           layer.bindPopup("<h2>" + "'" + feature.properties.title + "'" + "</h2><hr><h3><ul><li>Newspaper: <em>" + feature.properties.publication_title  + "</li></em><br><li>" + "Publication Date: " + feature.properties.date_real + "</li><br><li>" + "Location: " + feature.properties.place + "</li><br><li>" + "<a  href=" + feature.properties.url + " TARGET="_blank">Click to see the article!</a>" + "</p>");
      }
      });
      $.getJSON("https://lauraneckstein.cartodb.com:443/api/v2/sql?format=GeoJSON&q=SELECT * FROM public.jewishnotices WHERE holiday LIKE 'Passover'", function(data) {
