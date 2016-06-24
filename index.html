@@ -124,14 +124,13 @@ font-family: 'Bitter', serif; font-weight: 400;
         <div id="map" class="sidebar-map"></div>
 
 
-<a href="https://github.com/lauraneckstein/jewishnewspapers" "target=_blank"><img style="position: absolute; top: 0; left: 0; border: 0; width: 149px; height: 149px; " src="http://aral.github.com/fork-me-on-github-retina-ribbons/left-turquoise@2x.png" alt="Fork me on GitHub"></a><a href="https://github.com/lauraneckstein/jewishnewspapers" "target=_blank"><img style="position: absolute; top: 0; left: 0; border: 0; width: 149px; height: 149px;" src="http://aral.github.com/fork-me-on-github-retina-ribbons/left-turquoise@2x.png" alt="Fork me on GitHub"></a>
 
 <script src="js/leaflet-sidebar.js"></script>
         
   <script>
   // Base layer
   var baseLayer =   L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
-          attribution:' CartoDB attribution'
+          attribution: '&copy <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy <a href="http://cartodb.com/attributions#basemaps">CartoDB</a>' 
         });
   // MarkerCluster layer and options
 
@@ -197,10 +196,13 @@ geojson2.addTo(markers2);
 geojson3.addTo(markers3);
 
     var map = L.map('map', {
-	     zoomControl: true,
+	     zoomControl: false,
+	     zoom: 5,
+	     center: [39.73, -99.99],
 	     fullscreen: true,
-	    layers: [baseLayer, markers1],
-	    maxZoom: 9}).fitBounds(geojson1.getBounds());
+	     scrollwheelzoom: true,
+	     touchZoom: true,
+	    layers: [baseLayer, markers1]});
 	var baseLayers = {
 			"baseLayer": baseLayer,
 
@@ -215,7 +217,7 @@ geojson3.addTo(markers3);
 
 L.control.layers(overlays,null,{collapsed:false}).addTo(map);
 
- var sidebar = L.control.sidebar('sidebar', {position: 'right', collapsed:false}).addTo(map);
+ var sidebar = L.control.sidebar('sidebar', {position: 'left', collapsed:false}).addTo(map);
 
  });
  });

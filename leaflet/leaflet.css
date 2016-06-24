@@ -107,7 +107,7 @@
 	clear: both;
 	}
 .leaflet-right .leaflet-control {
-	float: right;
+	float: left;
 	}
 .leaflet-top .leaflet-control {
 	margin-top: 10px;
@@ -277,7 +277,9 @@
 	box-shadow: 0 1px 5px rgba(0,0,0,0.4);
 	background: #fff;
 	border-radius: 5px;
-	}
+	left: 0;
+	position: absolute;
+		}
 .leaflet-control-layers-toggle {
 	background-image: url(images/layers.png);
 	width: 36px;
@@ -325,6 +327,8 @@
 	background: #fff;
 	background: rgba(255, 255, 255, 0.7);
 	margin: 0;
+	left: 0;
+	position: absolute;
 	}
 .leaflet-control-attribution,
 .leaflet-control-scale-line {

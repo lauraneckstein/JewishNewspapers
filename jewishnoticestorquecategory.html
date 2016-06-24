@@ -1,5 +1,5 @@
 <html>
-  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+  <link rel="stylesheet" href="leaflet/leaflet.css" />
   <style>
     #map, html, body {
       width: 100%; height: 100%; padding: 0; margin: 0;
@@ -8,8 +8,8 @@
   <body>
     <div id="map"></div>
 
-    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-    <script src="../dist/torque.full.uncompressed.js"></script>
+    <script src="leaflet/leaflet.js"></script>
+    <script src="torque.full.uncompressed.js"></script>
 
 
     <script>
@@ -17,25 +17,39 @@
       var CARTOCSS = [
           'Map {',
           '-torque-time-attribute: "date";',
-          '-torque-aggregation-function: "count(cartodb_id)";',
-          '-torque-frame-count: 760;',
-          '-torque-animation-duration: 15;',
-          '-torque-resolution: 2',
+          '-torque-aggregation-function: "CDB_Math_Mode(torque_category)";',
+          '-torque-frame-count: 256;',
+          '-torque-animation-duration: 45;',
+          '-torque-resolution: 32'
+          '-torque-data-aggregation: "cumulative";',
           '}',
-          '#layer {',
+          '#jewishnotices {',
           '  marker-width: 3;',
           '  marker-fill-opacity: 0.8;',
-          '  marker-fill: #FEE391; ',
-          '  comp-op: "lighten";',
-          '  [value > 2] { marker-fill: #FEC44F; }',
-          '  [value > 3] { marker-fill: #FE9929; }',
-          '  [value > 4] { marker-fill: #EC7014; }',
-          '  [value > 5] { marker-fill: #CC4C02; }',
-          '  [value > 6] { marker-fill: #993404; }',
-          '  [value > 7] { marker-fill: #662506; }',
-          '  [frame-offset = 1] { marker-width: 10; marker-fill-opacity: 0.05;}',
-          '  [frame-offset = 2] { marker-width: 15; marker-fill-opacity: 0.02;}',
-          '}'
+          '  marker-fill: #FFFFFF; ',
+          '	marker-type: ellipse; ',
+          '  comp-op: "lighter";',
+          '}',
+                '#jewishnotices {',
+
+          '  [frame-offset = 1] { marker-width: 10; marker-fill-opacity: 0.45;}',
+          '}',
+                    '#jewishnotices {',
+          '  [frame-offset = 2] { marker-width: 10; marker-fill-opacity: 0.225;}',
+          '}',
+          
+          '#jewishnotices {',
+          ' [value=1] { marker-fill: #4faf88;}',
+'}',
+          
+          '#jewishnotices {',
+          ' [value=2] { marker-fill: #5CA2D1;}',
+'}',
+          
+          '#jewishnotices {',
+          ' [value=3] { marker-fill: #ac88d8;}',
+'}',
+
       ].join('\n');
         
       var map = new L.Map('map', {

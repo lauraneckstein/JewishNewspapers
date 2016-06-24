@@ -3,6 +3,7 @@
   top: 0;
   bottom: 0;
   width: 100%;
+  height: 200px;
   overflow: hidden;
   z-index: 2000; }
   .sidebar.collapsed {
@@ -41,12 +42,12 @@
   top: 0;
   bottom: 0;
   height: auto;
-  background-color: #fff; }
+  background-color: #fffff; }
   .sidebar-left .sidebar-tabs {
     left: 0; }
   .sidebar-right .sidebar-tabs {
     right: 0; 
-       bottom: auto;
+    bottom: 0;
     height: auto;}
   .sidebar-tabs, .sidebar-tabs > ul {
     position: absolute;
